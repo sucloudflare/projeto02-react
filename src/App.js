@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import './index.css';
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`container ${darkMode ? 'dark' : 'light'}`}>
+      <h1>Meu Título</h1>
+      <p>Esse é um texto de exemplo para mostrar o modo {darkMode ? 'Escuro' : 'Claro'}.</p>
+      <img
+        src="https://via.placeholder.com/300"
+        alt="Imagem de exemplo"
+        style={{ borderRadius: '8px' }}
+      />
+      <br />
+      <button onClick={() => setDarkMode(!darkMode)}>
+        Ativar Modo {darkMode ? 'Claro' : 'Escuro'}
+      </button>
     </div>
   );
 }
